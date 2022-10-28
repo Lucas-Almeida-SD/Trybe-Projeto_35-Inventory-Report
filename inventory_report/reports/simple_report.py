@@ -48,14 +48,20 @@ class SimpleReport:
         return SimpleReport.convert_seconds_to_date(closest_expiration_date)
 
     @classmethod
-    def get_company_with_more_products(self, product_list):
-        companies = dict()
+    def products_stocked_by_company(self, product_list):
+        stock_by_company = dict()
 
         for product in product_list:
-            if product['nome_da_empresa'] in companies:
-                companies[product['nome_da_empresa']] += 1
+            if product['nome_da_empresa'] in stock_by_company:
+                stock_by_company[product['nome_da_empresa']] += 1
             else:
-                companies[product['nome_da_empresa']] = 1
+                stock_by_company[product['nome_da_empresa']] = 1
+
+        return stock_by_company
+
+    @classmethod
+    def get_company_with_more_products(self, product_list):
+        companies = SimpleReport.products_stocked_by_company(product_list)
 
         companies_items = list(companies.items())
         companies_values = list(companies.values())

@@ -16,7 +16,6 @@ class SimpleReport:
             f"Data de validade mais próxima: {closest_expiration_date}\n"
             f"Empresa com mais produtos: {company_with_more_products}"
         )
-        pass
 
     @classmethod
     def get_oldest_manufacturing_date(self, product_list):

@@ -1,6 +1,7 @@
 from abc import ABC
 import csv
 import json
+import xmltodict
 from inventory_report.reports.simple_report import SimpleReport
 from inventory_report.reports.complete_report import CompleteReport
 
@@ -32,12 +33,20 @@ class Inventory(ABC):
         return product_list
 
     @classmethod
+    def read_xml_file(self, path):
+        with open(path) as file:
+            product_list = xmltodict.parse(file.read())['dataset']['record']
+
+        return product_list
+
+    @classmethod
     def read_file(self, path):
         file_type = path.split(".")[-1]
 
         readers = {
             "csv": Inventory.read_csv_file,
             "json": Inventory.read_json_file,
+            "xml": Inventory.read_xml_file,
         }
 
         return readers[file_type](path)

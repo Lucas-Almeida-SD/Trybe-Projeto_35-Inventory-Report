@@ -19,29 +19,38 @@ class SimpleReport:
 
     @classmethod
     def get_oldest_manufacturing_date(self, product_list):
-        oldest_manufacturing_date_in_seconds_list = [
+        manufacturing_date_in_seconds_list = [
             SimpleReport.convert_date_to_seconds(
                 product["data_de_fabricacao"])
             for product in product_list
         ]
 
-        oldest_date_in_seconds = min(oldest_manufacturing_date_in_seconds_list)
+        oldest_date_in_seconds = min(manufacturing_date_in_seconds_list)
 
         return SimpleReport.convert_seconds_to_date(oldest_date_in_seconds)
 
     @classmethod
+    def is_closest_expiration_date(self, seconds, closest_expiration_date):
+        diff_now = seconds - datetime.now().timestamp()
+        return (
+            seconds < closest_expiration_date and
+            diff_now > 0
+        )
+
+    @classmethod
     def get_closest_expiration_date(self, product_list):
-        closest_expiration_date_in_seconds_list = [
+        expiration_date_in_seconds_list = [
             SimpleReport.convert_date_to_seconds(
                 product["data_de_validade"]
             )
             for product in product_list
         ]
 
-        closest_expiration_date = max(closest_expiration_date_in_seconds_list)
-        for seconds in closest_expiration_date_in_seconds_list:
-            diff = seconds - datetime.now().timestamp()
-            if diff < closest_expiration_date and diff > 0:
+        closest_expiration_date = max(expiration_date_in_seconds_list)
+        for seconds in expiration_date_in_seconds_list:
+            if SimpleReport.is_closest_expiration_date(
+                seconds, closest_expiration_date
+            ):
                 closest_expiration_date = seconds
 
         return SimpleReport.convert_seconds_to_date(closest_expiration_date)

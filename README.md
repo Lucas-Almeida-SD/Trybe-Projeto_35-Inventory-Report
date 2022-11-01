@@ -25,7 +25,7 @@ Além disso, o relatório final possui duas versões: __simples__ e __completa__
 Clone o projeto e acesse a pasta do mesmo.
 
 ```bash
-$ git clone ggit@github.com:Lucas-Almeida-SD/Trybe-Projeto_35-Inventory-Report.git
+$ git clone git@github.com:Lucas-Almeida-SD/Trybe-Projeto_35-Inventory-Report.git
 
 $ cd Projeto_35-Inventory-Report
 ```

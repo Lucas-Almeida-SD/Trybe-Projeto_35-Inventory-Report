@@ -27,7 +27,7 @@ Clone o projeto e acesse a pasta do mesmo.
 ```bash
 $ git clone git@github.com:Lucas-Almeida-SD/Trybe-Projeto_35-Inventory-Report.git
 
-$ cd Projeto_35-Inventory-Report
+$ cd Trybe-Projeto_35-Inventory-Report
 ```
 
 Para iniciá-lo, siga os passos abaixo:

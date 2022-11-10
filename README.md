@@ -2,7 +2,7 @@
 
 Esse projeto foi realizado para exercitar o que foi aprendido na Seção 2 do Módulo de Ciência da Computação do curso da [Trybe](https://www.betrybe.com/), no qual foi sobre `Programação Orientada a Objetos` e `Aplicação de Design Pattern` utilizando a linguagem de programação `Python`.
 
-Neste projeto foi desenvolvido, um gerador de relatórios que recebe como entrada arquivos com dados de um estoque e gera, como saída, um relatório acerca destes dados. Para isso, foi utilizada `Programação Orientada a Objetos` e `Design Pattern` para melhor estruturação e legibilidade do código.
+Neste projeto foi desenvolvido um gerador de relatórios que recebe como entrada arquivos com dados de um estoque e gera, como saída, um relatório acerca destes dados. Para isso, foi utilizada `Programação Orientada a Objetos` e `Design Pattern` para melhor estruturação e legibilidade do código.
 
 Os dados de estoque podem ser obtidos de diversas fontes:
 
